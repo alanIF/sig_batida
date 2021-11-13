@@ -13,6 +13,7 @@
                             {{ session('status') }}
                         </div>
                     @endif
+                    @extends('alerts.message')
 
                     <table class="table table-hover">
                         <thead>

@@ -18,7 +18,7 @@
             @csrf
             <div class="mb-3">
                 <label for="exampleInputEmail1" class="form-label">Nome </label>
-                <input type="text" name="descricao" class="form-control" placeholder="Nome" value="{{$funcionario->nome}}" required>
+                <input type="text" name="nome" class="form-control" placeholder="Nome" value="{{$funcionario->nome}}" required>
             </div>
             <div class="mb-3">
                 <label for="exampleInputEmail1" class="form-label">Cpf </label>
@@ -34,11 +34,11 @@
             </div>
             <div class="mb-3">
                 <label for="exampleInputEmail1" class="form-label">Data de Nascimento</label>
-                <input type="text" name="data_nascimento" class="form-control" placeholder="Data de Nascimento" required value="{{$funcionario->data_nascimento}}">
+                <input type="date" name="data_nascimento" class="form-control" placeholder="Data de Nascimento" required value="{{$funcionario->data_nascimento}}">
             </div>
             <div class="mb-3">
                 <label for="exampleInputEmail1" class="form-label">Data de admissão</label>
-                <input type="text" name="data_admissao" class="form-control" placeholder="Data de Admissão" required value="{{$funcionario->data_admissao}}"> 
+                <input type="date" name="data_admissao" class="form-control" placeholder="Data de Admissão" required value="{{$funcionario->data_admissao}}"> 
             </div>
             
             <button type="submit" class="btn btn-primary">Submit</button>
@@ -68,11 +68,11 @@
             </div>
             <div class="mb-3">
                 <label for="exampleInputEmail1" class="form-label">Data de Nascimento</label>
-                <input type="text" name="data_nascimento" class="form-control" placeholder="Data de Nascimento" required>
+                <input type="date" name="data_nascimento" class="form-control" placeholder="Data de Nascimento" required>
             </div>
             <div class="mb-3">
                 <label for="exampleInputEmail1" class="form-label">Data de admissão</label>
-                <input type="text" name="data_admissao" class="form-control" placeholder="Data de Admissão" required>
+                <input type="date" name="data_admissao" class="form-control" placeholder="Data de Admissão" required>
             </div>
             <button type="submit" class="btn btn-primary">Submit</button>
             <a class="btn btn-warning " href="{{url('funcionarios/')}}">Voltar</a>
