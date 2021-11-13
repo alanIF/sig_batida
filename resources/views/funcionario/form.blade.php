@@ -8,11 +8,8 @@
                 <div class="card-header">Funcionários</div>
 
                 <div class="card-body">
-                    @if (session('status'))
-                        <div class="alert alert-success" role="alert">
-                            {{ session('status') }}
-                        </div>
-                    @endif
+                @extends('alerts.message')
+
             @if(Request::is('*/edit'))
             <form action="{{url('funcionarios/update')}}/{{$funcionario->id}}" method="post">
             @csrf

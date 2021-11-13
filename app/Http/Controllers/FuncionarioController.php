@@ -25,8 +25,7 @@ class FuncionarioController extends Controller
     public function update($id ,Request $request){
         $funcionario= Funcionario::findOrFail($id);
         $funcionario->update($request->all());
-        \Session::flash('msg_update', 'Funcionario Atualizado com sucesso!');
-        return Redirect::to('/funcionarios');
+        return redirect()->back()->with(['message' => 'Funcionário atualizado com sucesso']);
     }
     public function edit($id){
         $funcionario= Funcionario::findOrFail($id);
@@ -35,7 +34,7 @@ class FuncionarioController extends Controller
     public function delete($id){
         $funcionario= Funcionario::findOrFail($id);
         $funcionario->delete();
-        \Session::flash('msg_update', 'Funcionario excluído com sucesso!');
+        return redirect()->back()->with(['message' => 'Funcionário excluído com sucesso']);
 
         return Redirect::to('/funcionarios');
     }

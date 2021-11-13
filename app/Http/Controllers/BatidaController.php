@@ -25,20 +25,23 @@ class BatidaController extends Controller
 
         $data = date('d/m/Y');
         $hora = date('H:i:s');
-        $sql = 'Select f.id id from funcionario f where f.cpf like '.$request->cpf.'';
+        $sql = 'Select f.id id, f.nome nome from funcionario f where f.cpf like '.$request->cpf.'';
         $funcionario = \DB::select($sql);
         foreach($funcionario as $f){
             $id_f = $f->id;
+            $nome_f= $f->nome;
         }
+        if(!isset($id_f)){
+            return redirect()->back()->with(['message' => 'Funcionário não encontrado']);
 
+        }
         $batida = new Batida();
         $batida->id_funcionario=$id_f;
         $batida->horario= $hora;
         $batida->data_batida= $data;
         $batida->save();
-        \Session::flash('msg_update', 'Batida realizada com sucesso!');
-
-        return Redirect::to('/ponto');
+        return redirect()->back()->with(['message' => 'Batida realizada com sucesso do indivíduo(a): '.$nome_f.' !']);
+       
     }
     public function update($id ,Request $request){
         $batida= Batida::findOrFail($id);
