@@ -10,8 +10,13 @@ use Redirect;
 class FuncionarioController extends Controller
 {
     public function index(){
-        $funcionarios = Funcionario::get();
+        $funcionarios = Funcionario::simplePaginate(10);
         return view('funcionario.index', ['funcionarios' => $funcionarios]);
+    }
+    public function batidas($id){
+        $sql = 'Select b.id id, b.horario horario, b.data_batida data_batida from batida b where b.id_funcionario='.$id.'';
+        $batidas = \DB::select($sql);
+        return view('funcionario.batida', ['batidas' => $batidas]);
     }
     // form de cadastrar
     public function new(){

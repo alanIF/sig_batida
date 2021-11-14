@@ -24,7 +24,7 @@ Route::group(['middleware' => 'web'], function(){
 Route::group(['middleware' => 'auth'], function(){
     
     Route::get('/funcionarios',  [App\Http\Controllers\FuncionarioController::class, 'index']);
-    Route::get('/funcionarios/batidas',  [App\Http\Controllers\FuncionarioController::class, 'batidas']);
+    Route::get('/funcionarios/{id}/batidas',  [App\Http\Controllers\FuncionarioController::class, 'batidas']);
 
     Route::get('/funcionarios/new',  [App\Http\Controllers\FuncionarioController::class, 'new']);
     Route::post('/funcionarios/add',  [App\Http\Controllers\FuncionarioController::class, 'add']);

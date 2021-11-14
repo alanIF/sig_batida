@@ -15,7 +15,7 @@
                     @endif
                     @extends('alerts.message')
 
-                    <table class="table table-hover">
+                    <table class="table table-hover " id="table_id"  >
                         <thead>
                             <tr>
                             <th scope="col">#</th>
@@ -26,7 +26,7 @@
                             <th scope="col">data de nascimento</th>
                             <th scope="col">data de admissão</th>
 
-                            <th colspan='2'>Ações</th>
+                            <th colspan='3'>Ações</th>
                             
 
 
@@ -42,6 +42,7 @@
                             <td>{{$f->senha}}</td>
                             <td>{{$f->data_nascimento}}</td>
                             <td>{{$f->data_admissao}}</td>
+                            <td><a class="btn btn-info " href="funcionarios/{{$f->id}}/batidas"><i class="fa fa-eye" ></i></a> </td>
 
                             <td><a class="btn btn-warning " href="funcionarios/{{$f->id}}/edit"><i class="fa fa-edit" ></i></a> </td>
                             <td>   <form action="funcionarios/delete/{{$f->id}}" method="post"> @csrf @method('delete')<button class="btn btn-danger"><i class="fa fa-trash" ></i></button></form></td>
@@ -50,13 +51,13 @@
                         </tbody>
                         <tfoot>
                             <tr >
-                                <td colspan='9'><a class="btn btn-primary " href="{{url('funcionarios/new')}}"><i class="fa fa-plus" ></i></a></td>
-
+                                <td colspan='6'><a class="btn btn-primary " href="{{url('funcionarios/new')}}"><i class="fa fa-plus" ></i></a></td>
+                                <td colspan='3  '>                        {{ $funcionarios->links() }}</td>
                             </tr>
                         </tfoot>
                         </table>
-
                 </div>
+    
         </div>
     </div>
 </div>
